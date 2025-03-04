@@ -15,6 +15,12 @@ const Hero = () => {
     "Problem Solver"
   ];
 
+  function openPdf() {
+    const resumeUrl = '/resume.pdf';
+    window.open(resumeUrl, '_blank');
+
+  }
+
   useEffect(() => {
     // Text animation for roles
     let roleIndex = 0;
@@ -172,7 +178,7 @@ const Hero = () => {
               className="group relative overflow-hidden border-primary/50 hover:border-primary"
               asChild
             >
-              <a href="https://hanzala.tech/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a onClick={openPdf} target="_blank" rel="noopener noreferrer">
                 <span className="relative z-10 flex items-center gap-2">
                   <FileText className="h-4 w-4" />
                   View Resume
