@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 95%;
+    --foreground: 240 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
+    --primary: 262 83% 47%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 50% 92%;
+    --secondary-foreground: 260 45% 30%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 262 83% 47%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 262 83% 47%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 10% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 10% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 40% 16%;
+    --secondary-foreground: 260 60% 80%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 262 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden scrollbar-thin scrollbar-thumb-primary scrollbar-track-background/30;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold tracking-tight;
+  }
+
+  code {
+    @apply font-mono text-sm;
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-background/50 backdrop-blur-xl border border-white/10 shadow-glass;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-white/10 shadow-glass;
+  }
+
+  .button-glow {
+    @apply relative overflow-hidden transition-all;
+  }
+
+  .button-glow::after {
+    @apply content-[''] absolute top-0 -left-[100%] w-full h-full bg-white/20 skew-x-[25deg] transition-all duration-1000 ease-out;
+  }
+
+  .button-glow:hover::after {
+    @apply left-[100%];
+  }
+
+  .hoverable-card {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+  
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground;
+  }
+  
+  .section-subheading {
+    @apply text-lg md:text-xl font-medium text-muted-foreground mb-12 max-w-2xl;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  /* Custom text typing animation */
+  .typing-text::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+  }
+  
+  /* Glowing border effect */
+  .glow-border {
+    @apply relative;
+  }
+  
+  .glow-border::before {
+    @apply content-[''] absolute inset-0 rounded-[inherit] padding-[2px] bg-gradient-to-r from-primary via-purple-500 to-indigo-500 -z-10 opacity-0 transition-opacity duration-300;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  
+  .glow-border:hover::before {
+    @apply opacity-100;
+  }
+  
+  /* Gradient text animation */
+  .animated-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-indigo-500 animate-gradient-x;
+    background-size: 200% auto;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thumb-primary::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+  
+  .scrollbar-track-background\/30::-webkit-scrollbar-track {
+    @apply bg-background/30;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-indigo-500;
+  }
+  
+  /* Animation for loading placeholders */
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes gradientMove {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  /* Additional custom animations */
+  .animate-gradient-x {
+    animation: gradientX 15s ease infinite;
+  }
+  
+  @keyframes gradientX {
+    0%, 100% {
+      background-position: 0% center;
+    }
+    50% {
+      background-position: 100% center;
+    }
+  }
+  
+  @keyframes blink {
+    from, to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  /* Particle animation */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    animation: particleFloat 15s infinite linear;
+  }
+  
+  @keyframes particleFloat {
+    0% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) translateX(100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+}
