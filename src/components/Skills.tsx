@@ -34,7 +34,7 @@ const Skills = () => {
     { name: "TailwindCSS", icon: <PenTool className="h-6 w-6" /> },
     { name: "Prompt Engineering", icon: <Brain className="h-6 w-6" /> },
     { name: "AI/ML", icon: <Brain className="h-6 w-6" /> },
-    { name: "Ionic", icon: <Smartphone className="h-6 w-6" /> },
+    // { name: "Ionic", icon: <Smartphone className="h-6 w-6" /> },
     { name: "PrimeNG", icon: <Package className="h-6 w-6" /> },
     { name: "SQL", icon: <Database className="h-6 w-6" /> },
     { name: "Firebase", icon: <Flame className="h-6 w-6" /> },
