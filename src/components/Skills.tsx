@@ -25,7 +25,7 @@ const Skills = () => {
 
   const skills: Skill[] = [
     { name: "Angular", icon: <Code2 className="h-6 w-6" /> },
-    { name: "React.js", icon: <Atom className="h-6 w-6" /> },
+    // { name: "React.js", icon: <Atom className="h-6 w-6" /> },
     { name: "TypeScript", icon: <Braces className="h-6 w-6" /> },
     { name: "Ngrx", icon: <GitBranch className="h-6 w-6" /> },
     { name: "JavaScript", icon: <Code className="h-6 w-6" /> },
