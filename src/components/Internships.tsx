@@ -114,7 +114,7 @@ const Internships = () => {
                 <div className="h-10 w-1.5 bg-primary/20 rounded-full mr-4"></div>
                 <div className="font-medium text-lg flex items-center gap-2">
                   <Code className="h-5 w-5 text-primary" />
-                  Full Stack Developer
+                  Full Stack Intern
                 </div>
               </div>
               
