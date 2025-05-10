@@ -38,7 +38,7 @@ const Internships = () => {
   }, []);
 
   return (
-    <section id="internships" className="relative py-16 md:py-24 bg-secondary/20">
+    <section id="internships" className="relative py-16 md:py-24">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-0 w-3/4 h-3/4 bg-gradient-to-bl from-primary/5 to-transparent rounded-full filter blur-3xl opacity-50"></div>
@@ -118,7 +118,7 @@ const Internships = () => {
                 </div>
               </div>
               
-              <div className="pl-6 border-l border-primary/10 space-y-4 mb-6">
+              <div className="pl-6 border-l border-primary/10 space-y-1 mb-6">
                 <div className="group/item hover:bg-secondary/40 p-4 rounded-lg transition-colors">
                   <div className="flex items-start gap-3">
                     <div className="mt-1 p-1.5 rounded-full bg-primary/10 text-primary">
@@ -140,11 +140,21 @@ const Internships = () => {
                     </p>
                   </div>
                 </div>
+                <div className="group/item hover:bg-secondary/40 p-4 rounded-lg transition-colors">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-1 p-1.5 rounded-full bg-primary/10 text-primary">
+                      <Lightbulb className="h-3.5 w-3.5" />
+                    </div>
+                    <p className="text-muted-foreground text-sm md:text-base">
+                    Integrated Node.js + Sequelize APIs for secure, real-time data flow between frontend and backend.
+                    </p>
+                  </div>
+                </div>
               </div>
             </CardContent>
             
             <CardFooter className="border-t border-border/30 pt-4 flex flex-wrap gap-2">
-              {["Angular", "Ionic", "TypeScript", "REST API", "Figma", "Responsive Design"].map((skill) => (
+              {["Angular", "Ionic", "TypeScript", "REST API", "Figma", "Responsive Design","Node.js","Sequelize"].map((skill) => (
                 <span 
                   key={skill}
                   className="px-3 py-1 text-xs rounded-full bg-secondary/50 border border-primary/10 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors cursor-default"
