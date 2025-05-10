@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -164,6 +165,12 @@
   .animated-gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-indigo-500 animate-gradient-x;
     background-size: 200% auto;
+  }
+  
+  /* Animate in */
+  .animate-in {
+    @apply opacity-100 translate-y-0;
+    transition: all 0.7s ease-out;
   }
 }
 

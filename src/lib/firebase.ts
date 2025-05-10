@@ -22,17 +22,17 @@ const db = getFirestore(app);
 const incrementViews = async () => {
   try {
     const viewsRef = doc(db, "Views", "001");
-    
+
     return runTransaction(db, async (transaction) => {
       const docSnap = await transaction.get(viewsRef);
-      
+
       if (!docSnap.exists()) {
         transaction.set(viewsRef, { viewsCount: 1 });
       } else {
         const newCount = (docSnap.data()["viewsCount"] || 0) + 1;
         transaction.update(viewsRef, { viewsCount: newCount });
       }
-      
+
       return true;
     }).then(() => {
       console.log("View count incremented successfully using transaction");
@@ -52,11 +52,11 @@ const getViews = async () => {
   try {
     const viewsRef = doc(db, "Views", "001");
     const viewsSnap = await getDoc(viewsRef);
-    
+
     if (viewsSnap.exists()) {
       const data = viewsSnap.data();
       console.log("Views document data:", data);
-      
+
       if (typeof data.viewsCount === 'number') {
         return data.viewsCount;
       } else {

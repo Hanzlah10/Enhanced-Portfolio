@@ -47,15 +47,15 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        console.log("Fetching projects...");
+        // console.log("Fetching projects...");
         const projectsCollection = collection(db, "projects");
         const projectsSnapshot = await getDocs(projectsCollection);
         
         if (projectsSnapshot.empty) {
-          console.log("No projects found in the collection");
+          // console.log("No projects found in the collection");
           // Fallback to sample projects
           const sampleProjects = generateSampleProjects();
-          console.log("Sample projects:", sampleProjects);
+          // console.log("Sample projects:", sampleProjects);
           setProjects(sampleProjects);
           
           // For mobile, limit initially to 3 projects
@@ -76,7 +76,7 @@ const Projects = () => {
             ...doc.data(),
           })) as Project[];
           
-          console.log("Fetched projects:", projectsList);
+          // console.log("Fetched projects:", projectsList);
           setProjects(projectsList);
           
           // For mobile, limit initially to 3 projects
@@ -92,7 +92,7 @@ const Projects = () => {
         
         // Use sample projects as fallback
         const sampleProjects = generateSampleProjects();
-        console.log("Using sample projects due to error:", sampleProjects);
+        // console.log("Using sample projects due to error:", sampleProjects);
         setProjects(sampleProjects);
         
         // For mobile, limit initially to 3 projects

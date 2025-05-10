@@ -37,12 +37,12 @@ const ProjectDetail = () => {
       if (!id) return;
 
       try {
-        console.log("Fetching project with ID:", id);
+        // console.log("Fetching project with ID:", id);
         const projectRef = doc(db, "projects", id);
         const projectSnap = await getDoc(projectRef);
 
         if (projectSnap.exists()) {
-          console.log("Project data:", projectSnap.data());
+          // console.log("Project data:", projectSnap.data());
           setProject({ id: projectSnap.id, ...projectSnap.data() } as Project);
         } else {
           console.log("No project found with ID:", id);
@@ -50,7 +50,7 @@ const ProjectDetail = () => {
           const sampleProject = sampleProjects.find(p => p.id === id);
           
           if (sampleProject) {
-            console.log("Found project in sample data:", sampleProject);
+            // console.log("Found project in sample data:", sampleProject);
             setProject(sampleProject);
           } else {
             setError("Project not found.");
